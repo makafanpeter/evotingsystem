@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="admin/css/layout.css" />
+        <link rel="stylesheet" type="text/css" href="admin/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="admin/css/lightbox.css" />
+        <link rel="stylesheet" type="text/css" href="admin/css/sunny/jquery-ui-1.8.16.custom.css" />
+        <script type="text/javascript" src="admin/js/jquery.js"></script>
+        <script type="text/javascript" src="admin/js/jqueryui.js"></script>
+        <script type="text/javascript" src="admin/js/lightbox.js"></script>
+        <style type="text/css">
+            body{
+                text-align: justify;
+                line-height: 1.3;
+            }
+        </style>
+        <title>E-voting System</title>
+    </head>
+    <body>
+        <div id="main">
+            <div id="header">
+                <img src="admin/img/logo.png"  id="leftLogo" alt="logo" />
+                <img src="admin/img/logoText.png"  id="logoText" alt="logo" />
+                <img src="admin/img/unilorinlogo.png"  id="rightLogo" alt="logo" />
+            </div>
+            <div id="leftColumn">
+
+            </div>
+            <div id="rightColumn">
+                <div id="content">
+                    <div class="indent">
+
+                        <h1>Cluster F group 2 E-voting system</h1>
+                        <h2>What is e-voting?</h2>
+                        <p>Electronic voting (also known as
+                            e-voting) is an electronic means of casting a vote and electronic means of
+                            counting votes. Electronic voting technology can include punched cards, optical
+                            scan voting systems and specialized voting kiosks (including self-contained
+                            direct-recording electronic voting systems, or DRE). It can also involve
+                            transmission of ballots and votes via telephones, private computer networks, or
+                            the Internet.</p>
+                        <p>This e-voting system demonstrates the following features:</p>
+
+
+                        <ul>
+
+                            <li>OOP concepts</li>
+
+                            <li>preventing public access to your scripts</li>
+
+                            <li>configuration for your application</li>
+
+                            <li>accessing your database data</li>
+
+                            <li>changing your database data (with redirect-after-post pattern)</li>
+
+                            <li>validating your data</li>
+
+                            <li>splitting scripts and templates</li>
+
+                            <li>handling expected and unexpected exceptions</li>
+
+                        </ul>
+                        <h3>What is included in the DVD?</h3>
+
+                        <ol>
+
+                            <li>E-voting system PHP Application Project</li>
+
+                            <li>Database SQL Script - Use this script to populate tables and sample records</li>
+
+                            <li> Read me(how to deploy)</li>
+
+                            <li>XAMMP Application Software</li>
+                        </ol>
+
+                        <h3>Requirements</h3>
+
+                        <p> Follow these before you run the application: </p>
+                        <ol>
+                            <li>Install XAMMP (Apache, MySQL, PHP, and Perl) on your computer.</li>
+
+                            <li>To test if XAMPP is installed, Open Windows Start Menu and
+                                Confirm if there is a directory named <b><i>Apache Friends, </i></b>Open the
+                                directory and start the XAMPP Control Panel i.e. <i><span style='font-size:
+                                                                                          9.0pt;line-height:115%'>Apache Friends/XAMPP/control panel.exe</span></i></li>
+
+                            <li>Make sure all the
+                                services on the control panel are running.</span></li>
+
+                            <li>Then place the <i>E-voting system PHP Application Project Folder
+                                    in the </i>XAMPP htdocs directory which  is located on your drive “<span
+                                    style='font-size:14.0pt;line-height:115%'>C:\xampp\htdocs”</span></li>
+
+                        </ol>
+                        <h3>Project folder's structure</h3>
+                        <ul>
+                            <li>config -
+                                Contains configuration file config.ini where you can edit the DB connection
+                                settings</li>
+
+                            <li>dao - Contains
+                                DAO (Data Access Object) classes.</li>
+
+                            <li>db - Contains
+                                SQL dump for creating the database.</li>
+
+                            <li>exception -
+                                Contains custom exceptions.</li>
+
+                            <li>layout -
+                                Contains layout common for all web pages.</li>
+
+                            <li>mapping -
+                                Contains classes used for mapping from database to model classes.</li>
+
+                            <li>model -
+                                Contains model classes.</li>
+
+                            <li>page - Contains
+                                pages of the Evotingsystem application.</li>
+
+                            <li>util - Contains
+                                utility classes.</li>
+
+                            <li>validation -
+                                Contains validation classes.</li>
+
+                            <li>admin – this
+                                part of the site is meant to be accessed by the administrator who manages the
+                                system, the admin must login to use this section </li>
+
+                            <li>voter – this
+                                part of the site is meant to be accessed by voters, and a  voters  must login
+                                to use features like viewing result, updating profile e.t.c .</li>
+
+                            <li>candidate –
+                                this part of the site is meant to be accessed by candidate, and  a candidate
+                                must login to use features like viewing result, updating profile e.t.c .</li>
+
+                            <li>vote- 
+                                this section of the site is where the
+                                election is done.</li>
+
+
+                        </ul>
+
+                        <h2>Getting Started</h2>
+                        <ol>
+
+                            <li>Firstly, place the
+                                project into the htdocs directory of XAMPP i.e. <span style='font-size:
+                                                                                      14.0pt;line-height:115%'>C:\xampp\htdocs</span></li>
+
+                            <li><span style='font-size:9.0pt;line-height:115%'>Secondly, we then
+                                    set database authentication in config/config.ini, which is stored in
+                                    EvotingSytem List Project directory. Just update login and password fields in
+                                    the configuration file, so they are the same as MySQL ones. </span></li>
+
+                            <li><span style='font-size:9.0pt;line-height:115%'> We create the
+                                    database and populate it with data: </span></li>
+                                    <ol>
+                            <li><span style='font-size:9.0pt;line-height:115%'>Create new MySQL
+                                    database named evoting in phpMyAdmin (or any other MySQL administration tool).</span></li>
+
+                            <li><span style='font-size:9.0pt;line-height:115%'>Import db/mysql.sql
+                                    script stored in Evotingsystem List Project directory into the created database
+                                    using phpMyAdmin import function. The script creates table and fills it with
+                                    sample data.</span></li>
+                                    </ol>
+                            <li><span style='font-size:9.0pt;line-height:115%'>The strongly
+                                    preferred way is to create all your PHP applications underneath the documents
+                                    directory (htdocs) of your web server (so the web server can access them
+                                    directly, e.g. http://localhost/evotingsystem/admin/). </span></li>
+
+                            <li><span style='font-size:9.0pt;line-height:115%'>To login to the
+                                    Administrator Section use Matric Number: 10/52ha068  and password: admin</span></li>
+
+                            <li><span style='font-size:9.0pt;line-height:115%'>And lastly enjoy
+                                    playing with the application.</span></li>
+                        </ol>
+                    </div>
+
+                </div>
+            </div>
+            <div id="footer">
+                <hr />
+
+            </div>
+        </div>
+
+    </body>
+</html>

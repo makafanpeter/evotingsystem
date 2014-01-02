@@ -1,0 +1,441 @@
+/* general styles */
+body
+{
+    font-size: 100%;
+    line-height: 1em;
+    /*    color: #2a8425;*/
+}
+#main{
+    width: 1000px;
+    background: #f7f7e9;
+    margin: 20px auto;
+}
+h1 {
+    margin-bottom: 30px;
+}
+h2 {
+    margin-bottom: 20px;
+}
+h3 {
+    font-size: 1em;
+    color: #2a8425;
+    margin-bottom: 12px;
+}
+h3 a {
+    color: #2a8425;
+    text-decoration: none;
+}
+h3 a:hover {
+    text-decoration: underline;
+}
+p{
+    color: #414141;
+    font-size: 100%;
+}
+.p{
+    color: #414141;
+    font-size: 100%;
+}
+#content p {
+    line-height: 1.17em;
+    text-align: justify;
+}
+#welcomeText p{
+    text-align: justify;
+    margin:20px;
+}
+#welcomeText ul {
+    list-style: circle;
+}
+#welcomeText li {
+    line-height: 1.30em;
+    margin-left: 30px;
+    text-align: justify;
+}
+#singleColumn {
+    margin: 20px 30px;
+    text-align: left;
+}
+
+.lightBlue { background-color: #edf8f7 }
+
+.white { background-color: #fff }
+
+.bubble {
+    font-weight: bold;
+    background-color: #f5eabe;
+    padding: 5px;
+    color: inherit;
+    border-radius: 4px;
+}
+
+.hMargin { margin: 0 30px }
+
+.smallText { font-size: small }
+
+.header {
+    background-color: #c3e3e0;
+    height: 30px;
+}
+a {
+    color: #414141;
+    outline: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+
+/** boxes **/
+#box {
+    background: #fff;
+    width: 250px;
+    border: 1px solid #2a8425;
+    margin: 30px auto;
+}
+#box .inner {
+    padding: 30px 30px 40px 30px;
+}
+
+/* list */
+ul {
+    list-style: circle;
+}
+li {
+    margin-left: 30px;
+}
+ul.list {
+    list-style: none;
+}
+.list li {
+    width: 100%;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding: 3px 0 2px 0;
+    margin-left: 0;
+}
+.list li img {
+    float: left;
+    margin: -3px 15px 0 0;
+    width: 16px;
+    height: 16px;
+}
+.list p.description {
+    margin-bottom: 5px;
+}
+.list span.label {
+    font-weight: bold;
+}
+/*title*/
+.title {
+    margin-bottom: 18px;
+}
+
+/*icons */
+.icon {
+    width: 16px;
+    height: 16px;
+    margin: 0px 2px;
+}
+
+/*green button*/
+.greenButton{
+    width:auto;
+    margin:10px 0 0 2px;
+    padding:3px 4px 3px 4px;
+    color:white;
+    background-color:#2a8425;
+    outline:none;
+    border:1px solid #006600;
+    font-weight:bold;
+}
+
+.greenButton:active{
+    background-color:#006600;
+    padding:4px 3px 2px 5px;
+}
+
+/* Footer */
+#footer p{
+    font-size: 12px
+}
+
+/** content **/
+#content {
+    padding: 20px 40px 0 40px;
+}
+#content .indent {
+    padding: 14px 0 0 9px;
+}
+#content p {
+    line-height: 1.17em;
+}
+/* Form */
+.form{
+    border:3px solid #eeeeee;
+    padding:15px;
+    color:#203360;
+    margin:30px auto 40px auto;
+    width:400px;
+}
+input,select{
+    padding:3px;
+    color:#333333;
+    /*    height: 15px;*/
+    border:1px solid #96A6C5;
+    margin-top:2px;
+    width:200px;
+    font-size:11px;
+}
+
+select{
+    /*    width:auto;*/
+    padding:2px;
+}
+
+.formline{
+    padding:3px;
+}
+
+label{
+    font-size:11px;
+    display:block;
+    text-align:right;
+}
+
+.form table{
+    width:300px;
+}
+
+.form td{
+    font-size:11px;
+}
+
+.input-container{
+    padding:1px;
+}
+/* Data */
+.data{
+
+    font-size: 12px;
+}
+
+.candidateName{
+    font-family: Verdana;
+    font-kerning: auto;
+    font-size: 18px;
+    line-height: 1;
+}
+.positionName{
+    font-family: Arial;
+    font-size: small;
+}
+
+/** Table */
+table.detail {
+    margin-bottom: 20px;
+}
+table.detail th {
+    text-align: right;
+}
+table.detail td {
+    padding: 2px 14px;
+}
+/** Position */
+.positionBox {
+    height: 150px;
+    width: 150px;
+    margin: 21px 14px 6px;
+    float: left;
+    background: #ccc;
+}
+.positionLabel {
+    position: absolute;
+    background-color: #fff;
+    opacity: 0.7;
+    height: 40px;
+    width: 146px;
+    margin: 2px;
+}
+
+.positionLabelText {
+    position: absolute;
+    line-height: 150%;
+    font-size: small;
+    margin: 3px 10px;
+}
+
+
+
+/* position page styles */
+#positionLeftColumn {
+    width: 185px;
+    float: left;
+    margin-top: 25px;
+    padding-left: 15px;
+}
+
+#positionRightColumn {
+    margin-top: 10px;
+    width: 650px;
+    float: left;
+}
+
+.positionButton {
+    margin: 15px 22px;
+    padding: 13px;
+    display: block;
+    background-color: #d3ede8;
+    border-radius: 4px;
+}
+
+#selectedPosition {
+    background-color: #b2d2d2;
+    margin-left: 10px;
+    width: 139px;
+}
+
+#positionTitle {
+    margin: -34px 180px 0 0;
+    font-size: x-large;
+    float: right;
+    background-color: #f5eabe;
+    padding: 7px;
+    border-radius: 4px;
+}
+
+.positionText {
+    line-height: 25px;
+    font-size: x-large;
+}
+
+#candidateTable { width: 600px ;
+                  position: relative;
+                  z-index: 1;
+                  margin: 0 20px;
+                  border-spacing: 0;
+                  text-align: center;
+                  border: solid 1px #f5eabe;
+}
+
+#candidateTable tr { height: 100px }
+
+#candidateTable td { width: 145px }
+
+
+/*check out*/
+#checkout { 
+    width: 500px ;
+    position: relative;
+    z-index: 1;
+    float: left;
+    margin: 0 20px;
+    border-spacing: 0;
+    text-align: center;
+    border: solid 1px #f5eabe;
+
+}
+
+#checkout td {
+    width: 145px;
+    height: 90px;
+}
+#infobox{
+    padding: 0px 25px 0px 460px;
+    margin-left: 30px;
+}
+#confirmBox {
+    padding: 10px;
+    border: 1px solid #2a8425;
+    background-color: #c3e3e0;
+    border-radius: 6px;
+    margin: 0 20px;
+    border-spacing: 0;
+    text-align: center;
+    border: solid 1px #f5eabe;
+}
+
+#confirmBox td {
+    text-align: right;
+    padding: 5px;
+}
+#confirmationText {
+    margin: 0 20px 20px;
+    padding: 10px;
+    background-color: #f5eabe;
+    float: left;
+    border-radius: 4px;
+}
+/* ballotbox page styles */
+#actionBar {
+    margin: 30px;
+    width: 750px;
+    text-align: center;
+}
+
+
+#ballotboxTable { 
+    width: 850px ;
+    margin: 0 20px;
+    border-spacing: 0;
+    text-align: center;
+    border: solid 1px #f5eabe;
+}
+
+#ballotboxTable td {
+    width: 145px;
+    height: 100px;
+}
+
+#centerColumn{
+    margin: 30px;
+    min-height: 400px;
+}
+/**
+avatar
+*/
+.candidateAvatar{
+    height: 150px;
+    width:  150px;
+    margin:  3px;
+    display: block;
+    border-radius: 4px;
+}
+
+/*Error*/
+.errors {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.errors li {
+    color: #000;
+    font-size: 10px;
+    list-style-type: none;
+}
+.error-field {
+    background-color: pink;
+}
+.ui-widget{
+    z-index: 1;
+    margin:auto auto auto auto;
+    width:400px;
+}
+.ui-widget{
+    z-index: 1;
+    margin:auto auto auto auto;
+    width:400px;
+}
+/** flashes **/
+ul#flashes {
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+    list-style: none;
+}
+ul#flashes li {
+    margin: 0;
+    padding: 0;
+    color: green;
+    font-weight: bold;
+}
+

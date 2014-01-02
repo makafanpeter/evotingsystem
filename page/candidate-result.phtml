@@ -1,0 +1,48 @@
+<div id="leftColumn">
+    <div id="box">
+        <div class="inner">
+            <div class="title"><a href="">Menu</a></div>
+            <ul class="list">
+                <li><span><a href="<?php echo Utils::createLink('candidate-home'); ?>"><img src="img/icons/house.png" alt="Home" title="Home" class="icon" />Home</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('candidate-edit'); ?>"><img src="img/icons/user_edit.png" alt="Edit Profile" title="Edit Profile" class="icon" />Edit profile</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('candidate-view'); ?>"><img src="img/icons/user.png" alt="Profile" title="Profile" class="icon" />Profile</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('candidate-result'); ?>"><img src="img/icons/chart_pie.png" alt="See Result" title="See Result" class="icon" />Result</a></span></li>
+                <li class="last"><span><a href="<?php echo Utils::createLink('candidate-login', array('logout' => 0)); ?>"><img src="img/icons/door_out.png" alt="Log out" title="Log out" class="icon" />Logout</a></span></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+<div id="rightColumn">
+    <div id="errors">
+
+    </div>
+    <div id="content">
+        <div class="indent">
+            <h3>Results</h3>
+            <div id="result">
+                <?php
+                $positiondao = new PositionDao();
+                $positions = $positiondao->find();
+
+                foreach ($positions as $position) {
+                    ?>
+
+                    <ul>
+                        <li> 
+                            <a href="../result/<?php echo $position->getName(); ?>.png"  rel="lightbox[result]" title="<?php echo $position->getName(); ?>">
+                                <img alt="<?php echo $position->getName(); ?>" src="../result/<?php echo $position->getName() ?>.png" />
+                            </a>
+                        </li>
+                    </ul>
+
+                    <?php
+                }
+    
+                ?>
+
+            </div>
+        </div>
+    </div>
+</div>

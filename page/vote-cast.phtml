@@ -1,0 +1,63 @@
+<div id="centerColumn">
+    <table id="checkout">
+
+        <tr class="header">
+            <th>candidate</th>
+            <th>name</th>
+            <th>position</th>
+        </tr>
+        <?php
+        $count = 1;
+        $candidates = $ballotbox->getBallotBox();
+        $positiondao = new PositionDao();
+        foreach ($candidates as $candidate) {
+            $candidateposition = $positiondao->findById($candidate->getPosition());
+            ++$count;
+            ?>
+            <tr class="<?php echo (($count % 2) == 0) ? 'lightBlue' : 'white'; ?>">
+                <td >
+                    <img class="candidateAvatar" src="../avatar/<?php echo str_replace('/', '', $candidate->getMatricNumber()) . '.jpg' ?>" alt="<?php echo $candidate->getLastName(); ?>">
+                </td>
+                <td  > <span class="candidateName"><?php echo $candidate->getLastName() . ' ' . $candidate->getFirstName() . '<br />' . $candidate->getOtherNames(); ?></span></td>
+                <td  ><span class="positionName"><?php echo $candidateposition->getName(); ?></span></td>      
+            </tr>
+            <?php
+        }
+        ?>
+
+    </table>
+    <div id="infobox">
+
+
+        <table id="confirmBox">
+
+            <?php
+            if ($ballotbox->getNumberOfItems() == count($positions)) {
+                ?> 
+                <tr><td>You have successfully voted in <?php echo $ballotbox->getNumberOfItems(); ?> out of <?php echo count($positions); ?> positions in this election you may proceed to cast your vote.</td></tr>
+                <tr>
+                    <td>
+                        <form action="#" method="post">
+                            <input class="greenButton"  type="submit"
+                                   <?php
+                                   if (!$election->isElectionOn()) {
+                                       echo ' disabled = "disabled" onclick="msg()" id="castVote" ';
+                                   }
+                                   ?>    name="vote"
+
+                                   value="VOTE">
+                        </form>
+
+                    </td>
+                </tr>
+                <?php
+            } else {
+                ?>
+                <tr><td>You have to vote in all categories.</td></tr>
+                <?php
+            }
+            ?>
+
+        </table>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+/* html tags */
+body {
+    font-family: Tahoma, Geneva, sans-serif;
+    text-align: center;
+    margin: auto;
+}
+
+/* header */
+#header{
+    height: 250px;
+}
+#widgetBar {
+    height: 30px;
+    width: 850px;
+    float: right;
+    z-index: 1;
+/*    background: #ccc;*/
+}
+
+.headerWidget {
+    width: 194px;
+    margin: 20px 2px;
+    font-size: small;
+    float: right;
+    line-height: 25px;
+/*    background: #aaa;*/
+}
+
+/*logo*/
+#leftLogo {
+    height: 155px;
+    width: 155px;
+    float: left;
+    margin-left: 30px;
+    margin-top:  20px;
+}
+#rightLogo{
+    height: 130px;
+    width: 120px;
+    float: right;
+    margin-right: 30px;
+    margin-top:  30px;
+}
+#logoText {
+    /*    float: left;*/
+
+    /*    margin: 20px 0 0 70px;*/
+    margin-top: 50px;
+    /* font styles apply to text within img alt attribute */
+    font-family: 'American Typewriter', Courier, monospace;
+    font-size: 50px;
+    color: #333;
+}
+/*rightcolumn*/
+#rightColumn{
+    min-height: 700px;
+    width: 650px;
+    float: left;
+
+}
+/*left*/
+#leftColumn{
+
+    min-height: 700px;
+    width: 350px;
+    float: left;
+
+}
+/* footer styles */
+#footer {
+    height: 60px;
+    width: 350px;
+    clear: left;
+
+}
+
+
+
+
+

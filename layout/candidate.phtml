@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link type="text/css" href="css/sunny/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="css/layout.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/lightbox.css" />
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jqueryui.js"></script>
+        <script type="text/javascript" src="js/lightbox.js"></script>
+        <title><?php echo $page;?> | e-voting</title>
+    </head>
+    <body>
+        <div id="main">
+            <div id="header">
+                <?php
+                if (($page === 'candidate-login') || ($page === 'candidate-register') || ($page === '404') || ($page === '500')) {
+                    ?>  
+
+                    <a href="<?php echo Utils::createLink('candidate-login'); ?>" title="login">
+                        <img src="img/logo.png"  id="leftLogo" alt="logo" /></a>
+                    <?php
+                } else {
+                    ?>
+                    <a href="<?php echo Utils::createLink('candidate-home'); ?>" title="home">
+                        <img src="img/logo.png"  id="leftLogo" alt="logo" /></a>
+                    <?php
+                }
+                ?>
+                <img src="img/logotext.png" id="logoText" alt="logo"/>
+                <img src="img/unilorinlogo.png"  id="rightLogo" alt="logo" />
+            </div>
+
+            <?php require $template; ?>
+            <div id="footer">
+                <hr />
+                <p>&copy; Cluster F2 2013 </p>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>

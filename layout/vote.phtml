@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <link type="text/css" href="css/sunny/jquery-ui-1.8.16.custom.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="css/layout.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/lightbox.css" />
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jqueryui.js"></script>
+        <script type="text/javascript" src="js/lightbox.js"></script>
+        <title><?php echo $page; ?> | e-voting</title>
+    </head>
+    <body>
+        <div id="main">
+            <div id="header">
+                <?php
+                if (Utils::voteLoggedIn()) {
+                    $ballotbox = unserialize(SessionManager::getSession('ballotbox'));
+                    ?>
+                    <div id="widgetBar">
+
+                        <div class="headerWidget">
+                        </div>
+                        <div class="headerWidget">
+                            <?php
+                            if (!$ballotbox->isEmpty() && $ballotbox->getNumberOfItems() !== 0 && $page !== 'vote-cast' && $page !== 'vote-ballotbox' && $page !== 'vote-confirmation') {
+                                ?>   
+                                <a href="<?php echo Utils::createLink('vote-cast'); ?>" class="bubble">
+                                    proceed to vote &#x279f;
+                                </a>
+                                <?php
+                            }
+                            ?>
+                        </div>
+                        <div class="headerWidget" id="viewballotbox">
+                            <img id="ballotbox"src="img/icons/box.png" id="ballotbox" />
+                            <span class="horizontalMargin">
+
+                                <?php
+                                if ($ballotbox->getNumberOfItems() === 0) {
+                                    ?>
+                                    0
+                                    <?php
+                                } else {
+                                    ?>
+                                    <?php echo $ballotbox->getNumberOfItems(); ?>
+                                    <?php
+                                }
+                                ?>
+                                <?php
+                                if ($ballotbox->getNumberOfItems() <= 1) {
+                                    ?>
+                                    candidate
+                                    <?php
+                                } else {
+                                    ?>
+                                    candidates
+                                    <?php
+                                }
+                                ?>
+                            </span>
+                            <?php
+                            if ((!$ballotbox->isEmpty()) && ($page !== 'vote-ballotbox')) {
+                                ?>
+                                <a href="<?php echo Utils::createLink('vote-ballotbox'); ?>" class="bubble">view ballot</a>
+                                <?php
+                            }
+                            ?>
+
+                        </div>
+                        <div class="userHeader">
+                            <p class="bubble">Hi, <?php echo SessionManager::getSession('matricNumber')?></p>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+
+                <?php
+                if (($page === 'vote-login') || ($page === '404') || ($page === '500') || ($page === 'vote-confirmation')) {
+                    ?>  
+
+                    <a href="<?php echo Utils::createLink('vote-login'); ?>" title="login">
+                        <img src="img/logo.png"  id="leftLogo" alt="logo login" /></a>
+                    <?php
+                } else {
+                    ?>
+                    <a href="<?php echo Utils::createLink('vote-home'); ?>" title="home">
+                        <img src="img/logo.png"  id="leftLogo" alt="logo home" /></a>
+                    <?php
+                }
+                ?>
+                <img src="img/logotext.png" id="logoText" alt="logo"/>
+                <img src="img/unilorinlogo.png"  id="rightLogo" alt="logo" />
+            </div>
+
+            <?php require $template; ?>
+            <div id="footer">
+                <hr />
+                <p>&copy; Cluster F2 2013 </p>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/script.js"></script>
+    </body>
+</html>

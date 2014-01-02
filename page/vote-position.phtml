@@ -1,0 +1,52 @@
+<div id="positionLeftColumn">
+    <?php
+    foreach ($positions as $position) {
+        if ($position->getId() === $selectedPosition->getId()) {
+            ?>
+            <div class="positionButton" id="selectedPosition">
+                <span class="positionText"><?php echo $position->getName(); ?></span>
+            </div>
+            <?php
+        } else {
+            ?>
+            <a href="<?php echo Utils::createLink('vote-position', array('id' => $position->getId())); ?>" class="positionButton">
+                <span class="positionText"><?php echo $position->getName(); ?></span>
+            </a>
+            <?php
+        }
+    }
+    ?>
+</div>
+
+<div id="positionRightColumn">
+    <div id="content">
+        <div class="indent">
+            <p id="positionTitle"><?php echo $selectedPosition->getName(); ?></p>
+
+            <table id="candidateTable">
+                <?php
+                $count = 1;
+                foreach ($positionCandidate as $candidate) {
+                    ++$count;
+                    ?>
+                    <tr class="<?php echo (($count % 2) == 0) ? 'lightBlue' : 'white'; ?>">
+                        <td>
+                            <img class="candidateAvatar" src="../avatar/<?php echo str_replace('/', '', $candidate->getMatricNumber()) . '.jpg'; ?>" alt="<?php echo $candidate->getLastName(); ?>">
+                        </td>
+                        <td>
+                            <span class="candidateName"><?php echo $candidate->getLastName() . ' ' . $candidate->getFirstName() . '<br />' . $candidate->getOtherNames(); ?></span>
+                        </td>
+                        <td>
+                            <form action="<?php echo Utils::createLink('vote-position', array('id' => $candidate->getPosition(), 'candidateId' => $candidate->getId(), 'addtobox' => true)); ?>" method="post">
+                                <input type="hidden" name="candidateId" value="<?php echo $candidate->getId(); ?>" />
+                                <input type="submit" class="greenButton" value="ADD TO BALLOT">
+                            </form>
+                        </td>
+                    </tr>
+                    <?php
+                }
+                ?>
+            </table>
+        </div>
+    </div>
+</div>

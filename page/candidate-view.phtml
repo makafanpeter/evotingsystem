@@ -1,0 +1,109 @@
+<div id="leftColumn">
+    <div id="box">
+        <div class="inner">
+            <div class="title"><a href="">Menu</a></div>
+            <ul class="list">
+                <li><span><a href="<?php echo Utils::createLink('candidate-home'); ?>"><img src="img/icons/house.png" alt="Home" title="Home" class="icon" />Home</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('candidate-edit'); ?>"><img src="img/icons/user_edit.png" alt="Edit Profile" title="Edit Profile" class="icon" />Edit profile</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('candidate-view'); ?>"><img src="img/icons/user.png" alt="Profile" title="Profile" class="icon" />Profile</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('candidate-result'); ?>"><img src="img/icons/chart_pie.png" alt="See Result" title="See Result" class="icon" />Result</a></span></li>
+                <li class="last"><span><a href="<?php echo Utils::createLink('candidate-login', array('logout' => 0)); ?>"><img src="img/icons/door_out.png" alt="Log out" title="Log out" class="icon" />Logout</a></span></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+<div id="rightColumn">
+    <div id="content">
+        <div class="indent">
+            <?php if ($flashes): ?>
+                <ul id="flashes">
+                    <?php foreach ($flashes as $flash): ?>
+                        <li><span class="icon" style="margin-left: 7px;"><img src="img/icons/accept.png"/><?php echo $flash; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+            <h3>Profile</h3>
+            <img id="avatar" src="../avatar/<?php echo str_replace('/', '', $candidate->getMatricNumber()) . '.jpg'; ?>" 
+                 alt="<?php echo $candidate->getLastName() . ' ' . $candidate->getFirstName() . ' ' . $candidate->getOtherNames(); ?>" 
+                 title="<?php echo $candidate->getLastName() . ' ' . $candidate->getFirstName() . ' ' . $candidate->getOtherNames(); ?>"/>
+            <table class="detail">
+                <tbody>
+                    <tr>
+                        <td>Full Names</td>
+                        <td><span class="data"><?php echo $candidate->getLastName() . ' ' . $candidate->getFirstName() . ' ' . $candidate->getOtherNames(); ?></span></td>
+                    </tr>
+                    <tr>
+                        <td>Matric Number</td>
+                        <td><span class="data"><?php echo $candidate->getMatricNumber(); ?></span></td>
+                    </tr>
+                    <?php
+                    /*
+                      <tr>
+                      <td>Date of Birth</td>
+                      <td><span class="data"><?php echo Utils::escape(Utils::formatDate($candidate->getDateOfBirth())); ?></span></td>
+                      </tr>
+                      <tr>
+                      <td>Age</td>
+                      <td><span class="data"><?php echo $candidate->getAge(); ?></span></td>
+                      </tr>
+                      <tr>
+                      <td>Gender</td>
+                      <td><span class="data">
+                      <?php
+                      if ($candidate->getGender() === 'F') {
+                      echo '<img class="icon" src="../admin/img/icons/female.png" alt="female" title="female" />';
+                      } else {
+                      echo '<img class="icon" src="../admin/img/icons/male.png" alt="male" title="male" />';
+                      }
+                      ?>
+                      </span></td>
+                      </tr>
+                      <tr>
+                      <td>Email</td>
+                      <td><span class="data"><?php echo $candidate->getEmail(); ?></span></td>
+                      </tr>
+                     */
+                    ?>
+                    <tr>
+
+                        <td>Office</td>
+                        <td><span class="data"><?php echo $position->getName(); ?></span></td>
+                    </tr>
+                    <tr><td>Voted</label></td></td>
+                        <td><span class="data">
+                                <?php
+                                if ($candidate->getVoted() === true) {
+                                    echo '<img class="icon" src="../admin/img/icons/tick.png" alt="voted" title="voted" />';
+                                } else {
+                                    echo '<img class="icon" src="../admin/img/icons/cross.png" alt="not voted" title=" not voted" />';
+                                }
+                                ?></span></td>
+                    </tr>
+                    <tr>
+                        <td>University</label></td>
+                        <td><span class="data"><?php echo $university->getName(); ?></span></td>
+                    </tr>
+                    <tr>
+                        <td>Faculty</td>
+                        <td><span class="data"><?php echo $faculty->getName(); ?></span></td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td><span class="data"><?php echo $department->getName(); ?></span></td>
+                    </tr>
+                    <tr>
+                        <td>Date Created</td>
+                        <td><span class="data"><?php echo Utils::escape(Utils::formatDateTime($candidate->getCreatedOn())); ?></span></td>
+                    </tr>
+                    <tr>
+                        <td>Last Update</td>
+                        <td><span class="data"><?php echo Utils::escape(Utils::formatDateTime($candidate->getLastModifiedOn())); ?></span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

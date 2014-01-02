@@ -1,0 +1,62 @@
+<div id="leftColumn">
+    <div id="welcomeText">
+        <h2>Welcome!</h2>
+        <p>Welcome to <b>Cluster F2 Electronic voting System</b>.</p>
+        <p>Login with your matriculation number and password.</p>
+    </div>
+
+</div>
+<div id="rightColumn">
+    <div id="errors">
+
+    </div>
+    <div id="content">
+        <div class="indent">
+            <?php if ($flashes): ?>
+                <ul id="flashes">
+                    <?php foreach ($flashes as $flash): ?>
+                        <li><span class="icon" style="margin-left: 7px;"><img src="img/icons/accept.png"/></span><?php echo $flash; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+            <h3>Login</h3>
+            <?php if (!empty($errors)): ?>
+                <div class="ui-widget">
+                    <div class="ui-state-error ui-corner-all" style="padding:auto;"> 
+                        <ul class="errors">
+                            <?php foreach ($errors as $error): ?>
+                                <?php /* @var $error Error */ ?>
+                                <li><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .1em;"></span><?php echo $error->getMessage(); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="form">
+                <form id="form" name="form" action="#" method="post">
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="matricNumber">Matric Number</label>
+                            </td>
+                            <td><div class="input-container">
+                                    <input name="data[matricNumber]" id="matricNumber"
+                                           class="text<?php echo Utils::error_field('matricNumber', $errors); ?>" value="<?php if (isset($_POST['data']['matricNumber'])) echo Utils::escape($_POST['data']['matricNumber']); ?>" type="text" /></div></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="password">Password</label>
+                            </td>
+                            <td><div class="input-container">
+                                    <input name="data[password]" class="text<?php echo Utils::error_field('password', $errors); ?>" id="password" type="password" /></div></td>
+                        </tr>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <td><input type="submit" class="greenButton" name="login" value="LOGIN" /></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

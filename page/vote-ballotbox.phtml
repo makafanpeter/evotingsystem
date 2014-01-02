@@ -1,0 +1,79 @@
+<div id="centerColumn">
+
+
+    <?php
+    if ($ballotbox->getNumberOfItems() === 1) {
+        ?>
+        <p>Your ballot box contains <?php echo $ballotbox->getNumberOfItems(); ?>  item</p>
+        <?php
+    } elseif ($ballotbox->getNumberOfItems() > 1) {
+        ?>
+        <p>Your ballot box contains <?php echo $ballotbox->getNumberOfItems(); ?>  items</p>
+        <?php
+    } else {
+        ?>
+        <p>Your ballot box is empty</p>
+        <?php
+    }
+    ?>
+</p>
+<div id="actionBar">
+    <?php
+    if (!$ballotbox->isEmpty()) {
+        ?>
+        <a href="<?php echo Utils::createLink('vote-ballotbox', array('clear' => true)); ?>" class="bubble hMargin">clear ballot box</a>
+        <?php
+    }
+    ?>
+
+    <a href="<?php echo Utils::createLink('vote-home'); ?>" class="bubble hMargin">continue voting</a>
+    <?php
+    if (!$ballotbox->isEmpty()) {
+        ?>
+        <a href="<?php echo Utils::createLink('vote-cast'); ?>" class="bubble hMargin">proceed to vote</a>
+        <?php
+    }
+    ?>
+</div>
+
+
+
+<table id="ballotboxTable">
+
+    <tr class="header">
+        <th>candidate</th>
+        <th>name</th>
+        <th>position</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php
+    $count = 1;
+    $candidates = $ballotbox->getBallotBox();
+    $positiondao = new PositionDao();
+    foreach ($candidates as $candidate) {
+        $candidateposition = $positiondao->findById($candidate->getPosition());
+        ++$count;
+        ?>
+        <tr class="<?php echo (($count % 2) == 0) ? 'lightBlue' : 'white'; ?>">
+            <td >
+                <img class="candidateAvatar" src="../avatar/<?php echo str_replace('/', '', $candidate->getMatricNumber()) . '.jpg' ?>" alt="<?php echo $candidate->getLastName(); ?>">
+            </td>
+            <td  > <span class="candidateName"><?php echo $candidate->getLastName() . ' ' . $candidate->getFirstName() . '<br />' . $candidate->getOtherNames(); ?></span></td>
+            <td  ><span class="positionName"><?php echo $candidateposition->getName(); ?></span></td>
+            <td  >
+
+                <form action="<?php echo Utils::createLink('vote-ballotbox', array('candidateId' => $candidate->getId(), 'remove' => true)); ?>" method="post">
+                    <input type="hidden" name="candidateId" value="<?php echo $candidate->getId(); ?>" />
+                    <input class="greenButton" type="submit"
+                           name="submit"
+                           value="remove candidate">
+                </form>
+            </td>
+        </tr>
+        <?php
+    }
+    ?>
+
+</table>
+
+</div>

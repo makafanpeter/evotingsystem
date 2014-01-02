@@ -1,0 +1,98 @@
+<div id="leftColumn">
+    <div id="box">
+        <div class="inner">
+            <div class="title"><a href="">Menu</a></div>
+            <ul class="list">
+                <li><span><a href="<?php echo Utils::createLink('admin-home'); ?>"><img src="../admin/img/icons/house.png" alt="Home" title="Home" class="icon" />Home</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('admin-edit'); ?>"><img src="../admin/img/icons/user_edit.png" alt="Edit Profile" title="Edit Profile" class="icon" />Edit profile</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('admin-view'); ?>"><img src="../admin/img/icons/user.png" alt="Profile" title="Profile" class="icon" />Profile</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('admin-result-pie'); ?>"><img src="../admin/img/icons/chart_pie.png" alt="See Result" title="See Result" class="icon" />Result</a></span></li>
+
+                <li><span><a href="<?php echo Utils::createLink('admin-list-voter'); ?>"><img src="../admin/img/icons/folder_user.png" alt="View voters" title="View voters" class="icon" />View Voters</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('admin-list-candidate'); ?>"><img src="../admin/img/icons/folder_user.png" alt="View Candidates" title="View candidate" class="icon" />View Candidates</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('admin-list-university'); ?>"><img src="../admin/img/icons/world.png" alt="View Universities" title="View University" class="icon" />View Universities</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('admin-list-faculty'); ?>"><img src="../admin/img/icons/building.png" alt="View faculty" title="View faculty" class="icon" />View Faculties</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('admin-list-department'); ?>"><img src="../admin/img/icons/application_home.png" alt="Add Department" title="Add Department" class="icon" />View Departments</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('admin-list-election'); ?>"><img src="../admin/img/icons/time.png" alt="View Election" title="View Election" class="icon" />View Elections</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('admin-list-position'); ?>"><img src="../admin/img/icons/medal_gold_3.png" alt="View Position" title="View Position" class="icon" />View Position</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('admin-list-administrator'); ?>"><img src="../admin/img/icons/folder_user.png" alt="View Admin" title="View Administrator" class="icon" />View Administrators</a></span></li>
+
+                <?php
+                if ($currentAdmin->getRole() === 'super') {
+                    ?>
+
+                    <li><span><a href="<?php echo Utils::createLink('voter-register'); ?>"><img src="../admin/img/icons/user_add.png" alt="Add voter" title="Add voter" class="icon" />Add Voter</a></span></li>
+                    <li><span><a href="<?php echo Utils::createLink('candidate-register'); ?>"><img src="../admin/img/icons/user_add.png" alt="Add candidate" title="Add candidate" class="icon" />Add Candidate</a></span></li>
+                    <li><span><a href="<?php echo Utils::createLink('add-edit-university'); ?>"><img src="../admin/img/icons/world_add.png" alt="Add University" title="Add University" class="icon" />Add University</a></span></li>
+                    <li><span><a href="<?php echo Utils::createLink('add-edit-faculty'); ?>"><img src="../admin/img/icons/building_add.png" alt="Add faculty" title="Add faculty" class="icon" />Add Faculty</a></span></li>
+                    <li><span><a href="<?php echo Utils::createLink('add-edit-department'); ?>"><img src="../admin/img/icons/application_add.png" alt="Add Department" title="Add Department" class="icon" />Add Department</a></span></li>
+                    <li><span><a href="<?php echo Utils::createLink('add-edit-election'); ?>"><img src="../admin/img/icons/time_add.png" alt="Add Election" title="Add Election" class="icon" />Add Election</a></span></li>
+                    <li><span><a href="<?php echo Utils::createLink('add-edit-position'); ?>"><img src="../admin/img/icons/medal_gold_add.png" alt="Add Position" title="Add position" class="icon" />Add Position</a></span></li>
+                    <li><span><a href="<?php echo Utils::createLink('admin-add'); ?>"><img src="../admin/img/icons/user_add.png" alt="Add Admin" title="Add Election" class="icon" />Add Administrator</a></span></li>
+                    <li><span><a href="<?php echo Utils::createLink('admin-result'); ?>"><img src="../admin/img/icons/report.png" alt="Report" title="report" class="icon" />Report</a></span></li>
+                    <?php
+                }
+                ?>
+                <li class="last"><span><a href="<?php echo Utils::createLink('admin-login', array('logout' => 0)); ?>"><img src="../admin/img/icons/door_out.png" alt="Log out" title="Log out" class="icon" />Logout</a></span></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+<div id="rightColumn">
+    <div id="content">
+        <div class="indent">
+            <?php if ($flashes): ?>
+                <ul id="flashes">
+                    <?php foreach ($flashes as $flash): ?>
+                        <li><span class="icon" style="margin-left: 7px;"><img src="img/icons/accept.png"/></span><?php echo $flash; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+            <table id="adminTable" class="detailsTable">
+                <thead>
+                    <tr>
+                        <th colspan="2">Universities</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No.</td>
+                        <td>Name</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <?php
+                    foreach ($universities as $university) {
+                        ?>
+                        <tr class="tableRow">
+                            <td><?php echo $university->getId(); ?></td>
+                            <td><?php echo $university->getName(); ?></td>
+                            <td>
+                                <div class="actions">
+                                    <?php
+                                    if (($currentAdmin->getRole() === 'super')) {
+                                        ?>
+                                        <a href=" <?php echo Utils::createLink('add-edit-university', array('id' => $university->getId())); ?>"><img src="img/icons/world_edit.png" alt="" title="Edit it." class="icon" /></a>
+                                        <a href="<?php echo Utils::createLink('delete', array('universityId' => $university->getId())); ?>" id="delete-link"><img src="img/icons/world_delete.png" alt="" title="Delete it." class="icon" /></a>
+                                            <?php
+                                        }
+                                        ?>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+</div>
+<!--<div id="delete-dialog" title="Delete this University?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This University will be deleted. Are you sure?</p>
+</div>-->

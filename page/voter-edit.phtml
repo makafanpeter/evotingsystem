@@ -1,0 +1,138 @@
+<div id="leftColumn">
+    <div id="box">
+        <div class="inner">
+            <div class="title"><a href="">Menu</a></div>
+            <ul class="list">
+                <li><span><a href="<?php echo Utils::createLink('voter-home'); ?>"><img src="../admin/img/icons/house.png" alt="Home" title="Home" class="icon" />Home</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('voter-edit'); ?>"><img src="../admin/img/icons/user_edit.png" alt="Edit Profile" title="Edit Profile" class="icon" />Edit profile</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('voter-view'); ?>"><img src="../admin/img/icons/user.png" alt="Profile" title="Profile" class="icon" />Profile</a></span></li>
+                <li><span><a href="<?php echo Utils::createLink('voter-result'); ?>"><img src="../admin/img/icons/chart_pie.png" alt="See Result" title="See Result" class="icon" />Result</a></span></li>
+                <li class="last"><span><a href="<?php echo Utils::createLink('voter-login', array('logout' => 0)); ?>"><img src="../admin/img/icons/door_out.png" alt="Log out" title="Log out" class="icon" />Logout</a></span></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+<div id="rightColumn">
+    <div id="content">
+        <div class="indent">
+            <h3>Edit Profile</h3>
+            <?php if (!empty($errors)): ?>
+                <div class="ui-widget">
+                    <div class="ui-state-error ui-corner-all" style="padding: auto;"> 
+                        <ul class="errors">
+                            <?php foreach ($errors as $error): ?>
+                                <?php /* @var $error Error */ ?>
+                                <li><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .1em;"></span><?php echo $error->getMessage(); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="form">
+                <form name="" action="" method="post"  enctype="multipart/form-data" >
+                    <table border="0">
+                        <tbody>
+                            <tr>
+                                <td><label>Last Name</label></td>
+                                <td><div class="input-container">
+                                        <input name="data[lastname]" id="" type="text"
+                                               value="<?php
+                                               echo (isset($_POST['data']['lastname'])) ? htmlspecialchars(
+                                                               $_POST['data']['lastname']) : $voter->getLastName();
+                                               ?>" class="text<?php echo Utils::error_field('lastname', $errors); ?>"/></div></td>
+                            </tr>
+                            <tr>
+                                <td><label>First Name</label></td>
+                                <td><div class="input-container">
+                                        <input name="data[firstname]" id="" type="text" 
+                                               value="<?php echo (isset($_POST['data']['firstname'])) ? htmlspecialchars($_POST['data']['firstname']) : $voter->getFirstName();
+                                               ?>" class="text<?php echo Utils::error_field('firstname', $errors); ?>"/></div></td>
+                            </tr>
+                            <tr>
+                                <td><label>Other Names</label></td>
+                                <td><div class="input-container"><input name="data[othernames]" id="" type="text" value="<?php
+                                        echo (isset($_POST['data']['othernames'])) ? htmlspecialchars(
+                                                        $_POST['data']['othernames']) : $voter->getOtherNames();
+                                        ?>"/></div></td>
+                            </tr>
+                            <tr>
+                                <td><label>Matric Number</label></td>
+                                <td>
+                                    <div class="input-container">
+                                        <input readonly="readonly" name="data[matricNumber]" id="" type="text" 
+                                               value="<?php
+                                               echo (isset($_POST['matricNumber'])) ? htmlspecialchars(
+                                                               $_POST['data']['matricNumber']) : $voter->getMatricNumber();
+                                               ?>" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php /*
+                              <tr>
+                              <td><label>Date of Birth</label></td>
+                              <td><div class="input-container"><input name="data[dob]" id="" type="text"
+                              value="<?php echo (isset($_POST['data']['dob'])) ? htmlspecialchars(
+                              $_POST['data']['dob']) : Utils::escape(Utils::formatDate($voter->getDateOfBirth()));
+                              ?>"/></div></td>
+                              </tr>
+                              <tr>
+                              <td><label>Gender</label></td>
+                              <!--                                <td><div id="radio">
+                              <input type="radio" id="male" name="sex" /><label for="male">Male</label>
+                              <input type="radio" id="female" name="sex"  /><label for="female">Female</label>
+                              </div>--></td>
+                              </tr>
+                              <tr>
+                              <td><label>Email</label></td>
+                              <td><div class="input-container"><input name="data[email]" id="" type="text"
+                              value="<?php echo (isset($_POST['data']['email'])) ? htmlspecialchars(
+                              $_POST['data']['email']) : $voter->getEmail();
+                              ?>"/></div></td>
+                              </tr>
+                             * 
+                             */ ?>
+                            <tr>
+                                <td><label>University</label></td>
+                                <td><div class="input-container">
+                                        <input type="text" name="data[university]" value="<?php echo $university->getName(); ?>" readonly="readonly" /></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>Faculty</label></td>
+                                <td><div class="input-container">
+                                        <input type="text" name="data[faculty]" value="<?php echo $faculty->getName(); ?>" readonly="readonly" />
+                                    </div></td>
+                            </tr>
+                            <tr>
+                                <td><label>Department</label></td>
+                                <td><div class="input-container">
+                                        <input type="text" name="data[department]" value="<?php echo $department->getName(); ?>" readonly="readonly" />
+                                    </div></td>
+                            </tr>
+                            <tr>
+                                <td><label>Password</label></td>
+                                <td><div class="input-container"><input name="data[password1]" id="" type="password" class="text<?php echo Utils::error_field('password1', $errors); ?>"/></div></td>
+                            </tr>
+                            <tr>
+                                <td><label>Password (retype)</label></td>
+                                <td><div class="input-container"><input name="data[password2]" id="" type="password" class="text<?php echo Utils::error_field('password2', $errors); ?>"/></div></td>
+                            </tr>
+                            <tr>
+                                <td><label>Picture:</label></td>
+                                <td><div class="input-container" ><input name="avatar"  type="file" class="text<?php echo Utils::error_field('picture', $errors); ?>"/></div></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><input name="save" value="SAVE" type="submit" class="greenButton"/>
+                                    <input name="cancel" value="CANCEL" type="submit" class="greenButton"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

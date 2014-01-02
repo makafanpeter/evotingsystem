@@ -1,0 +1,100 @@
+/* html tags */
+body {
+    font-family: Tahoma, Geneva, sans-serif;
+    text-align: center;
+    margin: auto;
+}
+
+/* header */
+#header{
+    height: 300px
+}
+#widgetBar {
+    height: 20px;
+    width: 850px;
+/*    float: right;*/
+}
+
+#ballotbox {
+    position: absolute;
+    margin: 2px 0 0 2px;
+}
+
+.horizontalMargin {
+    margin-left: 28px;
+    margin-right: 5px
+}
+
+#viewballotbox {
+    text-align: left;
+    width: 210px;
+}
+
+.userHeader{
+    width: 194px;
+/*    margin: 20px 0;*/
+    font-size: small;
+    float: left;
+    line-height: 25px;
+}
+.headerWidget {
+    width: 194px;
+    margin: 20px 0;
+    font-size: small;
+    float: right;
+    line-height: 25px;
+}
+
+
+/*logo*/
+#leftLogo {
+    height: 155px;
+    width: 155px;
+    float: left;
+    margin-left: 30px;
+    margin-top:  20px;
+    border: none;
+}
+#rightLogo{
+    height: 130px;
+    width: 120px;
+    float: right;
+    margin-right: 30px;
+    margin-top:  30px;
+}
+#logoText {
+    /*    float: left;*/
+
+    /*    margin: 20px 0 0 70px;*/
+    margin-top: 50px;
+    /* font styles apply to text within img alt attribute */
+    font-family: 'American Typewriter', Courier, monospace;
+    font-size: 50px;
+    color: #333;
+}
+/*rightcolumn*/
+#rightColumn{
+    height: 600px;
+    width: 650px;
+    float: left;
+
+}
+/*left*/
+#leftColumn{
+
+    height: 600px;
+    width: 350px;
+    float: left;
+
+}
+/* footer styles */
+#footer {
+    height: 60px;
+    width: 350px;
+    clear: left;
+
+}
+
+
+
+

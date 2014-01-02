@@ -1,0 +1,35 @@
+<div id="leftColumn">
+<div id="welcomeText">
+        <h2>How to vote</h2>
+        <ol>
+            <li>Select a position category &#x279f.</li>
+            <li>Click on the <q>ADD TO BALLOT</q> button to add your candidate to your ballot box.</li>
+            <li>To choose a candidate from another position click on the position box on the left side of the page or by clicking on the logo on the top left side of an page to return to the welcome page.</li>
+            <li>Make sure you select a candidate in all position categories.</li>
+            <li>You may click on <q>view ballot</q> at the top of the page to see what is in your box.</li>
+            <li>Or you may click on <q>proceed to vote</q>, which is at the top right corner of the page.</li>
+            <li>If you have successfully selected all of your candidates and chosen step 6 above then you may proceed to vote by clicking on the <q>VOTE</q> button on the right side of the page.</li>
+            <li>lastly don't forget to log out.</li>
+        </ol>
+    </div>
+</div>
+<div id="rightColumn">
+    <div id="content">
+        <div class="indent">
+            <?php
+            foreach ($positions as $position) {
+                ?>
+                <div class="positionBox">
+                    <a href="<?php echo Utils::createLink('vote-position', array('id' => $position->getId())); ?>">
+                        <span class="positionLabel"></span>
+                        <span class="positionLabelText"><?php echo $position->getName(); ?></span>
+                        <img src="../vote/img/logo.png"
+                             alt="" class="positionImage">
+                    </a>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,291 @@
+/* general styles */
+body
+{
+    font-size: 100%;
+    /*    background:  ;*/
+    line-height: 1em;
+    /*    color: #2a8425;*/
+}
+#main{
+    width: 1000px;
+    background: #f7f7e9;
+    margin: 20px auto;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+h2 {
+    margin-bottom: 20px;
+}
+h3 {
+    font-size: 1em;
+    color: #2a8425;
+    margin-bottom: 12px;
+}
+h3 a {
+    color: #2a8425;
+    text-decoration: none;
+}
+h3 a:hover {
+    text-decoration: underline;
+}
+.p{
+    color: #414141;
+    font-size: 100%;
+}
+#content p {
+    line-height: 1.17em;
+    text-align: justify;
+}
+#welcomeText p{
+    text-align: justify;
+    margin:20px;
+}
+ul {
+    list-style: circle;
+}
+li {
+    margin-left: 30px;
+}
+#singleColumn {
+    margin: 20px 30px;
+    text-align: left;
+}
+
+.lightBlue { background-color: #edf8f7 }
+
+.white { background-color: #fff }
+
+.bubble {
+    font-weight: bold;
+    background-color: #f5eabe;
+    padding: 5px;
+    color: inherit;
+}
+
+.hMargin { margin: 0 30px }
+
+.smallText { font-size: small }
+
+.header {
+    background-color: #c3e3e0;
+    height: 30px;
+}
+a {
+    color: #414141;
+    outline: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+
+/** boxes **/
+#box {
+    background: #fff;
+    width: 250px;
+    border: 4px solid #2a8425;
+    margin: 30px auto;
+    border-radius: 6px;
+}
+#box .inner {
+    padding: 30px 30px 40px 30px;
+}
+
+/* list */
+ul {
+    list-style: circle;
+}
+li {
+    margin-left: 30px;
+}
+ul.list {
+    list-style: none;
+}
+.list li {
+    width: 100%;
+    overflow: hidden;
+    vertical-align: bottom;
+    padding: 3px 0 2px 0;
+    margin-left: 0;
+}
+.list li img {
+    float: left;
+    margin: -3px 15px 0 0;
+    width: 16px;
+    height: 16px;
+}
+.list p.description {
+    margin-bottom: 5px;
+}
+.list span.label {
+    font-weight: bold;
+}
+/*title*/
+.title {
+    margin-bottom: 18px;
+}
+
+/*icons */
+.icon {
+    width: 16px;
+    height: 16px;
+    margin: 0px 2px;
+}
+
+/*green button*/
+.greenButton{
+    width:auto;
+    margin:10px 0 0 2px;
+    padding:3px 4px 3px 4px;
+    color:white;
+    background-color:#2a8425;
+    outline:none;
+    border:1px solid #006600;
+    font-weight:bold;
+}
+
+.greenButton:active{
+    background-color:#006600;
+    padding:4px 3px 2px 5px;
+}
+
+/* Footer */
+#footer p{
+    font-size: 12px
+}
+
+/** content **/
+#content {
+    padding: 20px 40px 0 40px;
+}
+#content .indent {
+    padding: 14px 0 0 9px;
+}
+#content p {
+    line-height: 1.17em;
+}
+/* Form */
+.form{
+    border:3px solid #eeeeee;
+    padding:15px;
+    color:#203360;
+    margin:30px auto 40px auto;
+    width:400px;
+}
+input,select{
+    padding:3px;
+    color:#333333;
+    /*    height: 15px;*/
+    border:1px solid #96A6C5;
+    margin-top:2px;
+    width:200px;
+    font-size:11px;
+}
+
+select{
+    /*    width:auto;*/
+    padding:2px;
+}
+
+.formline{
+    padding:3px;
+}
+
+label{
+    font-size:11px;
+    display:block;
+    text-align:right;
+}
+
+.form table{
+    width:300px;
+}
+
+.form td{
+    font-size:11px;
+}
+
+.input-container{
+    padding:1px;
+}
+/*Error*/
+.errors {
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.errors li {
+    color: #000;
+    font-size: 10px;
+    list-style-type: none;
+}
+.error-field {
+    background-color: pink;
+}
+.ui-widget{
+    z-index: 1;
+    margin:auto auto auto auto;
+    width:400px;
+}
+/* Data */
+.data{
+
+    font-size: 12px;
+}
+/* Avatar*/
+#avatar{
+    float: right;
+    height: 120px;
+    width:  120px;
+    margin-top:  20px;
+    display: block;
+    border: 2px solid #2a8425;
+    border-radius: 4px;
+
+}
+
+/** Table */
+table.detail {
+    margin-bottom: 20px;
+}
+table.detail th {
+    text-align: right;
+}
+table.detail td {
+    padding: 2px 14px;
+}
+/**Result**/
+#result {
+    width: 500px; 
+    /*    margin: 200px auto;*/
+}
+
+#result li {
+    list-style: none; 
+    float: left; 
+    margin: 15px;
+}
+
+#result a img {
+    border: 5px solid #aaa;
+    width: 100px;
+    border-radius:4px;
+}
+#result a:hover img {
+    border: 5px solid #2a8425;
+}
+
+/** flashes **/
+ul#flashes {
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+    list-style: none;
+}
+ul#flashes li {
+    margin: 0;
+    padding: 0;
+    color: green;
+    font-weight: bold;
+}
