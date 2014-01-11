@@ -1,10 +1,9 @@
 <?php
 Utils::confirmAdminLogIn();
 $currentAdmin = unserialize(SessionManager::getSession('admin'));
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+if (!($currentAdmin->getRole() === 'super')) {
+    throw new UnauthorizedException('You are not authorized to perform this operation.');
+}
 $errors = array();
 $election = null;
 $edit = array_key_exists('id', $_GET);

@@ -5,10 +5,9 @@ $universities = $universitydao->find();
 $errors = array();
 $currentAdmin = unserialize(SessionManager::getSession('admin'));
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+if (!($currentAdmin->getRole() === 'super')) {
+    throw new UnauthorizedException('You are not authorized to perform this operation.');
+}
 if (array_key_exists('cancel', $_POST)) {
     Utils::redirect('admin-list-administrator');
 } elseif (array_key_exists('register', $_POST)) {

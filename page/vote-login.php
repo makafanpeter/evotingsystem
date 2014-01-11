@@ -9,7 +9,7 @@ if (array_key_exists('login', $_POST)) {
     $election = new Election();
     if (empty($errors)) {
         $voterDao = new VoterDao();
-        $voter = $voterDao->findByMatricNumber($_POST['data']['matricNumber']);
+        $voter = $voterDao->findByMatricNumber(Utils::mysqlPrep($_POST['data']['matricNumber']));
         if ($voter->getId()) {
             $electionHasVoterdao = new ElectionHasVoterDao();
             $electiondao = new ElectionDao();

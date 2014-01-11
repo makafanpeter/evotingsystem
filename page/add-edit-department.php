@@ -1,8 +1,11 @@
 <?php
 Utils::confirmAdminLogIn();
+$currentAdmin = unserialize(SessionManager::getSession('admin'));
+if (!($currentAdmin->getRole() === 'super')) {
+    throw new UnauthorizedException('You are not authorized to perform this operation.');
+}
 $facultydao = new FacultyDao();
 $faculties = $facultydao->find();
-$currentAdmin = unserialize(SessionManager::getSession('admin'));
 $errors = array();
 $department = null;
 $edit = array_key_exists('id', $_GET);

@@ -1,7 +1,9 @@
 <?php
-
 Utils::confirmAdminLogIn();
 $currentAdmin = unserialize(SessionManager::getSession('admin'));
+if (!($currentAdmin->getRole() === 'super')) {
+    throw new UnauthorizedException('You are not authorized to perform this operation.');
+}
 $errors = array();
 $university = null;
 $edit = array_key_exists('id', $_GET);
