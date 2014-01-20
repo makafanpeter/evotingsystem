@@ -10,6 +10,7 @@ body
     width: 1200px;
     background: #f7f7e9;
     margin: 20px auto;
+    border-radius: 15px;
 }
 h1 {
     margin-bottom: 30px;
