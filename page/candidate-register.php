@@ -17,7 +17,7 @@ if (array_key_exists('cancel', $_POST)) {
     $data = array(
         'firstname' => $_POST['data']['firstname']
         , 'lastname' => $_POST['data']['lastname']
-        , 'othernames' => htmlspecialchars($_POST['data']['othernames'])
+        , 'othernames' => Utils::escape($_POST['data']['othernames'])
         , 'matricNumber' => $_POST['data']['matricNumber']
         , 'election_id' => $_POST['data']['election']
         , 'position_id' => $_POST['data']['position']

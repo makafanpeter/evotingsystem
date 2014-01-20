@@ -39,7 +39,7 @@
                                 <td><div class="input-container">
                                         <input name="data[lastname]" id="" type="text"
                                                                         value="<?php
-                                                                        echo (isset($_POST['data']['lastname'])) ? htmlspecialchars(
+                                                                        echo (isset($_POST['data']['lastname'])) ? Utils::escape(
                                                                                         $_POST['data']['lastname']) : $candidate->getLastName();
                                                                         ?>" class="text<?php echo Utils::error_field('lastname', $errors); ?>"/></div></td>
                             </tr>
@@ -47,13 +47,13 @@
                                 <td><label>First Name</label></td>
                                 <td><div class="input-container">
                                         <input name="data[firstname]" id="" type="text" 
-                                               value="<?php echo (isset($_POST['data']['firstname'])) ? htmlspecialchars($_POST['data']['firstname']) : $candidate->getFirstName();
+                                               value="<?php echo (isset($_POST['data']['firstname'])) ? Utils::escape($_POST['data']['firstname']) : $candidate->getFirstName();
                                                                         ?>"  class="text<?php echo Utils::error_field('firstname', $errors); ?>"/></div></td>
                             </tr>
                             <tr>
                                 <td><label>Other Names</label></td>
                                 <td><div class="input-container"><input name="data[othernames]" id="" type="text" value="<?php
-                                        echo (isset($_POST['data']['othernames'])) ? htmlspecialchars(
+                                        echo (isset($_POST['data']['othernames'])) ? Utils::escape(
                                                         $_POST['data']['othernames']) : $candidate->getOtherNames();
                                         ?>"/></div></td>
                             </tr>
@@ -63,7 +63,7 @@
                                     <div class="input-container">
                                         <input readonly="readonly" name="data[matricnumber]" id="" type="text" 
                                                value="<?php
-                                               echo (isset($_POST['email'])) ? htmlspecialchars(
+                                               echo (isset($_POST['email'])) ? Utils::escape(
                                                                $_POST['data']['matricnumber']) : $candidate->getMatricNumber();
                                                ?>" />
                                     </div>

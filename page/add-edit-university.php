@@ -18,7 +18,7 @@ if (array_key_exists('cancel', $_POST)) {
 } elseif (array_key_exists('save', $_POST)) {
     // for security reasons, do not map the whole $_POST['todo']
     $data = array(
-        'name' => htmlspecialchars($_POST['data']['name']),
+        'name' => Utils::escape($_POST['data']['name']),
          );
     // map
     UniversityMapper::map($university, $data);

@@ -68,7 +68,7 @@
                                 <td><div class="input-container">
                                         <input name="data[name]" id="" type="text"
                                                value="<?php
-                                               echo (isset($_POST['data']['name'])) ? htmlspecialchars(
+                                               echo (isset($_POST['data']['name'])) ? Utils::escape(
                                                                $_POST['data']['name']) : $election->getName();
                                                ?>" class="text<?php echo Utils::error_field('name', $errors); ?>"/></div></td>
                             </tr>
