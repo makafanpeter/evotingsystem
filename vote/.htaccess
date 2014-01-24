@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+# Enable mod_rewrite
+RewriteEngine On
+
+# Specify the folder in which the application resides.
+# Use / if the application is in the root. 
+RewriteBase /evotingSystem/vote
+
+
+
+
+</IfModule>

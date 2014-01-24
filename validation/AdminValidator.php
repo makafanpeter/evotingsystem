@@ -14,7 +14,7 @@ class AdminValidator extends Validation implements Validator {
 
     //put your code here
     public function __construct() {
-        
+       
     }
 
     /**
