@@ -16,7 +16,11 @@ class Validate extends Validation implements Validator {
         
     }
 
-    //put your code here
+    /**
+     * 
+     * @param array $data
+     * @return \Error
+     */
     public static function validate(array $data) {
         $errors = array();
         if (empty($data['firstname'])) {

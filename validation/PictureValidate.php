@@ -17,6 +17,11 @@ class PictureValidate implements Validator{
         
     }
 
+    /**
+     * 
+     * @param array $data
+     * @return \Error
+     */
     public static function validate(array $data) {
         $errors = array();
         $allowedExts = array("jpeg", "jpg");
