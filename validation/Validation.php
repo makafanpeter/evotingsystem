@@ -6,8 +6,7 @@
  */
 
 /**
- * Description of Validation
- *
+ * Validates users input
  * @author Peter
  */
 abstract class Validation {

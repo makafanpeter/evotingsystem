@@ -48,9 +48,10 @@ p{
     list-style: circle;
 }
 #welcomeText li {
-    line-height: 1.30em;
+    line-height: 1.50em;
     margin-left: 30px;
     text-align: justify;
+    font-size: small;
 }
 #singleColumn {
     margin: 20px 30px;
