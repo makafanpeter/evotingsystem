@@ -43,7 +43,7 @@ abstract class Validation {
      * @return type
      */
     protected static function isvalidMatricNubmer($matric) {
-        return preg_match('/[0-9]{2}[\/{\|}~]{1}[0-9]{2}[a-zA-Z]{2}[0-9]{3}$/', $matric);
+        return preg_match('/^[0-9]{2}[\/{\|}~]{1}[0-9]{2}[a-zA-Z]{2}[0-9]{3}$/', $matric);
     }
 
     

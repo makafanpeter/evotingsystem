@@ -7,7 +7,7 @@
                 <li><span><a href="<?php echo Utils::createLink('admin-edit'); ?>"><img src="../admin/img/icons/user_edit.png" alt="Edit Profile" title="Edit Profile" class="icon" />Edit profile</a></span></li>
                 <li><span><a href="<?php echo Utils::createLink('admin-view'); ?>"><img src="../admin/img/icons/user.png" alt="Profile" title="Profile" class="icon" />Profile</a></span></li>
                 <li><span><a href="<?php echo Utils::createLink('admin-result-pie'); ?>"><img src="../admin/img/icons/chart_pie.png" alt="See Result" title="See Result" class="icon" />Result</a></span></li>
-                
+
                 <li><span><a href="<?php echo Utils::createLink('admin-list-voter'); ?>"><img src="../admin/img/icons/folder_user.png" alt="View voters" title="View voters" class="icon" />View Voters</a></span></li>
                 <li><span><a href="<?php echo Utils::createLink('admin-list-candidate'); ?>"><img src="../admin/img/icons/folder_user.png" alt="View Candidates" title="View candidate" class="icon" />View Candidates</a></span></li>
                 <li><span><a href="<?php echo Utils::createLink('admin-list-university'); ?>"><img src="../admin/img/icons/world.png" alt="View Universities" title="View University" class="icon" />View Universities</a></span></li>
@@ -16,7 +16,7 @@
                 <li><span><a href="<?php echo Utils::createLink('admin-list-election'); ?>"><img src="../admin/img/icons/time.png" alt="View Election" title="View Election" class="icon" />View Elections</a></span></li>
                 <li><span><a href="<?php echo Utils::createLink('admin-list-position'); ?>"><img src="../admin/img/icons/medal_gold_3.png" alt="View Position" title="View Position" class="icon" />View Position</a></span></li>
                 <li><span><a href="<?php echo Utils::createLink('admin-list-administrator'); ?>"><img src="../admin/img/icons/folder_user.png" alt="View Admin" title="View Administrator" class="icon" />View Administrators</a></span></li>
-                
+
                 <?php
                 if ($currentAdmin->getRole() === 'super') {
                     ?>
@@ -33,7 +33,7 @@
                     <?php
                 }
                 ?>
-                    <li class="last"><span><a href="<?php echo Utils::createLink('admin-login', array('logout' => 0)); ?>"><img src="../admin/img/icons/door_out.png" alt="Log out" title="Log out" class="icon" />Logout</a></span></li>
+                <li class="last"><span><a href="<?php echo Utils::createLink('admin-login', array('logout' => 0)); ?>"><img src="../admin/img/icons/door_out.png" alt="Log out" title="Log out" class="icon" />Logout</a></span></li>
             </ul>
         </div>
 
@@ -41,7 +41,7 @@
 
 </div>
 <div id="rightColumn">
-<div id="content">
+    <div id="content">
         <div class="indent">
             <?php if ($flashes): ?>
                 <ul id="flashes">
@@ -56,30 +56,32 @@
                         <th colspan="4">Voters</th>
 
                     </tr>
-                </thead>
-                <tbody>
                     <tr>
                         <td>No.</td>
                         <td>Matric No.</td> 
-                         <td>Status</td>
+                        <td>Status</td>
                         <td>University Name</td>
                         <td>Faculty Name</td>
                         <td>Department Name</td>
                     </tr>
+                </thead>
+                <tbody>
                     <?php
                     foreach ($voters as $voter) {
-                       $university = $universitydao->findById($voter->getUniversity());
-                       $faculty = $facultydao->findById($voter->getFaculty());
-                       $department = $departmentdao->findById($voter->getDepartment());
+                        $university = $universitydao->findById($voter->getUniversity());
+                        $faculty = $facultydao->findById($voter->getFaculty());
+                        $department = $departmentdao->findById($voter->getDepartment());
                         ?>
                         <tr class="tableRow">
                             <td><?php echo $voter->getId(); ?></td>
                             <td><?php echo $voter->getMatricNumber(); ?></td>
-                            <td><?php if ($voter->getVoted() === true) {
+                            <td><?php
+                                if ($voter->getVoted() === true) {
                                     echo '<img class="icon" src="img/icons/tick.png" alt="voted" title="voted" />';
                                 } else {
                                     echo '<img class="icon" src="img/icons/cross.png" alt="not voted" title=" not voted" />';
-                                }?></td>
+                                }
+                                ?></td>
                             <td><?php echo $university->getName(); ?></td>
                             <td><?php echo $faculty->getName(); ?></td>
                             <td><?php echo $department->getName(); ?></td>

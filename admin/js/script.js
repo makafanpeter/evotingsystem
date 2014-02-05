@@ -4,7 +4,7 @@ $(document).ready(function() {
     initDepartment();
     initFaculty();
     initSelectedRow();
-    initDeleteDialog();
+   // initDeleteDialog();
    // initDatepicker();
 });
 

@@ -80,15 +80,15 @@ a:hover {
     text-decoration: none;
 }
 
- a.viewCandidate{
+a.viewCandidate{
     text-decoration: none;
 }
 
-  a:hover.viewCandidate{
+a:hover.viewCandidate{
     text-decoration: underline;
     color: #414141;
     outline: none;
- 
+
 }
 
 
@@ -364,17 +364,41 @@ ul#flashes li {
     font-weight: bold;
 }
 
+/*Admin Table*/
+#infobox{
+    padding: 0px 25px 0px 460px;
+    margin-left: 15px;
+}
+
+#summaryBox{
+    min-width: 300px;
+    /*    float: left;*/
+    right: inherit;
+    background-color: #edf8f7;
+    border-spacing: 0;
+    border: solid 1px #f5eabe;
+}
+
+#resultTable {
+    min-width: 400px;
+    float: left;
+    background-color: #edf8f7;
+    margin: 0px 5px 20px 5px;
+    border-spacing: 0;
+    border: solid 1px #f5eabe;
+}
+
 #adminTable {
     width: 700px;
     float: left;
     background-color: #edf8f7;
-    margin: 0 5px;
+    margin: 0px 5px 20px 5px;
     border-spacing: 0;
     border: solid 1px #f5eabe;
 }
 .detailsTable { text-align: left }
 
-.detailsTable th { padding: 5px 10px }
+.detailsTable th { padding: 10px 10px;}
 
 .detailsTable td {
     padding: 5px 5px 5px 5px;

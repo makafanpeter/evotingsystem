@@ -32,25 +32,19 @@
         <table id="confirmBox">
 
             <?php
-            if ($ballotbox->getNumberOfItems() == count($positions)) {
+            if (($ballotbox->getNumberOfItems() == count($positions)) && $election->isElectionOn()) {
                 ?> 
                 <tr><td>You have successfully voted in <?php echo $ballotbox->getNumberOfItems(); ?> out of <?php echo count($positions); ?> positions in this election you may proceed to cast your vote.</td></tr>
                 <tr>
                     <td>
                         <form action="#" method="post">
-                            <input class="greenButton"  type="submit"
-                                   <?php
-                                   if (!$election->isElectionOn()) {
-                                       echo ' disabled = "disabled" onclick="msg()" id="castVote" ';
-                                   }
-                                   ?>    name="vote"
-
-                                   value="VOTE">
+                            <input class="greenButton"  type="submit" name="vote" value="VOTE">
                         </form>
-
                     </td>
                 </tr>
                 <?php
+            } elseif (!$election->isElectionOn()) {
+                echo "<tr><td>Election not in progress.</td></tr>";
             } else {
                 ?>
                 <tr><td>You have to vote in all categories.</td></tr>

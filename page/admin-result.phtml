@@ -17,7 +17,7 @@
                 <li><span><a href="<?php echo Utils::createLink('admin-list-position'); ?>"><img src="../admin/img/icons/medal_gold_3.png" alt="View Position" title="View Position" class="icon" />View Position</a></span></li>
                 <li><span><a href="<?php echo Utils::createLink('admin-list-administrator'); ?>"><img src="../admin/img/icons/folder_user.png" alt="View Admin" title="View Administrator" class="icon" />View Administrators</a></span></li>
 
-               <?php
+                <?php
                 if ($currentAdmin->getRole() === 'super') {
                     ?>
 
@@ -33,7 +33,7 @@
                     <?php
                 }
                 ?>
-                    <li class="last"><span><a href="<?php echo Utils::createLink('admin-login', array('logout' => 0)); ?>"><img src="../admin/img/icons/door_out.png" alt="Log out" title="Log out" class="icon" />Logout</a></span></li>
+                <li class="last"><span><a href="<?php echo Utils::createLink('admin-login', array('logout' => 0)); ?>"><img src="../admin/img/icons/door_out.png" alt="Log out" title="Log out" class="icon" />Logout</a></span></li>
             </ul>
         </div>
 
@@ -43,55 +43,55 @@
 <div id="rightColumn">
     <div id="content">
         <div class="indent">
-            <table id="adminTable" class="detailsTable">
-                <thead>
-                    <tr>
-                        <th colspan="2">Results</th>
+            <?php
+            $result = array();
+            foreach ($positions as $position) {
+                ?>
+                <table id="resultTable" class="detailsTable" >
+                    <thead>
+                        <tr>
+                            <th colspan="2"><?php echo $position->getName(); ?></th>
 
-                    </tr>
-                </thead>
-                <tbody>
+                        </tr>
+                        <tr class="tableHeading">
+                            <td class="rigidWidth">Candidates</td>
+                            <td class="rigidWidth">vote count</td>
+                        </tr>
+                    </thead>
+
+
+                    <tr><td colspan="2" style="padding: 0 0px"><hr></td></tr>
                     <?php
-                    $result = array();
-                    foreach ($positions as $position) {
+                    $results = $resultDao->report($position);
+                    foreach ($results as $result) {
                         ?>
-                        <tr>
-                            <td><?php echo $position->getName(); ?></td>
+                        <tr class="tableRow">
+                            <td><?php echo $result->getCandidate(); ?></td>
+                            <td><?php echo $result->getCount(); ?></td>
                         </tr>
-                        <tr>
-                            <td>
-                                <table class="embedded detailsTable" >
-                                    <tr class="tableHeading">
-                                        <td class="rigidWidth">Candidates</td>
-                                        <td class="rigidWidth">vote count</td>
-                                    </tr>
-
-                                    <tr><td colspan="2" style="padding: 0 20px"><hr></td></tr>
-                                    <?php
-                                    $results = $resultDao->report($position);
-                                    foreach ($results as $result) {
-                                        ?>
-                                        <tr class="tableRow">
-                                            <td><?php echo $result->getCandidate(); ?></td>
-                                            <td><?php echo $result->getCount(); ?></td>
-                                        </tr>
-                                        <?php
-                                    }
-                                    ?>
-                                    <tr><td colspan="2" style="padding: 0 20px"><hr></td></tr>
-                                </table>
-                            </td>
-                        </tr>
+                        <tr><td colspan="2" style="padding: 0 0px"><hr></td></tr>
                         <?php
                     }
                     ?>
-                    <tr><td colspan="2" style="padding: 0 20px"><hr></td></tr>
-                    <tr class="tableRow">
-                        <td>Total Number of Voters</td>
-                        <td><?php echo $total = $resultDao->TotalCandidateThatVoted() + $resultDao->TotalVotersThatVoted(); ?></td>
-                    </tr>
-                </tbody> 
-            </table>
+                </table>
+                <?php
+            }
+            ?>
+            <div id="infobox">
+                <table id="summaryBox" class="detailsTable" >
+                    <thead>
+                        <tr>
+                            <th colspan="2">Summary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tableRow">
+                            <td>Total Number of Voters</td>
+                            <td><?php echo $total = $resultDao->TotalCandidateThatVoted() + $resultDao->TotalVotersThatVoted(); ?></td>
+                        </tr>
+                    </tbody> 
+                </table>
+            </div>
         </div>
     </div>
 </div>
