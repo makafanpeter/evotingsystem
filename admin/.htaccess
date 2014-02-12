@@ -4,9 +4,9 @@ RewriteEngine On
 
 # Specify the folder in which the application resides.
 # Use / if the application is in the root. 
-RewriteBase /evotingSystem/vote
+RewriteBase /evotingSystem/admin
 
 
 
 </IfModule>
-ErrorDocument 404 /evotingSystem/vote/index.php?page=errorpage
+ErrorDocument 404 /evotingSystem/admin/index.php?page=errorpage

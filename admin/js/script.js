@@ -5,15 +5,15 @@ $(document).ready(function() {
     initFaculty();
     initSelectedRow();
    // initDeleteDialog();
-   // initDatepicker();
+  initDatepicker();
 });
 
 function initDatepicker() {
-    $('.datepicker')
-            .attr('readonly', 'readonly')
-            .datepicker({
-        dateFormat: 'yy-m-d'
-    });
+    var datepicker = $('.datepicker');
+    datepicker.attr('readonly', 'readonly');
+//   $('.datepicker').datepicker({
+//        dateFormat: 'yy-m-d'
+//    });
 }
 function initSelectedRow() {
 
