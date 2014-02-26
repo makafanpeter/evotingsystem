@@ -15,7 +15,8 @@ final class Index {
         'add-edit-position', 'add-edit-university', 'admin-add', 'admin-edit',
         'admin-list-candidate', 'admin-list-department', 'admin-list-election',
         'admin-list-faculty', 'delete', 'admin-list-election', 'admin-list-faculty', 'admin-list-position',
-        'admin-list-university', 'admin-list-voter', 'admin-result-pie', 'candidate-register', 'voter-register', 'admin-list-administrator', 'admin-view-candidate');
+        'admin-list-university', 'admin-list-voter', 'admin-result-pie',
+        'candidate-register', 'voter-register','voters-upload', 'admin-list-administrator', 'admin-view-candidate');
 
     /**
      * System config.
@@ -68,6 +69,7 @@ final class Index {
             'Utils' => '../utils/Utils.php',
             'JpegThumbnail' => '../utils/JpegThumbnail.php',
             'SessionManager' => '../utils/SessionManager.php',
+            'CSVImport'=>'../utils/CSVImport.php',
             'Administrator' => '../model/Administrator.php',
             'AdministratorMapper' => '../mapping/AdministratorMapper.php',
             'AdministratorDao' => '../dao/AdministratorDao.php',
@@ -77,6 +79,7 @@ final class Index {
             'Validate' => '../validation/Validate.php',
             'Validator' => '../validation/Validator.php',
             'PictureValidate' => '../validation/PictureValidate.php',
+            'FileValidator' =>'../validation/FileValidator.php',
             'CandidateRegisterValidation' => '../validation/CandidateRegisterValidation.php',
             'VoterRegisterValidation' => '../validation/VoterRegisterValidation.php',
             'AdminValidator' => '../validation/AdminValidator.php',

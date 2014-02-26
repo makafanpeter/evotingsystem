@@ -10,7 +10,7 @@
  *
  * @author Peter
  */
-class VoterRegisterValidation extends Validation implements Validator{
+class VoterRegisterValidation extends Validation implements Validator {
 
     //put your code here
     public function __construct() {
@@ -22,9 +22,9 @@ class VoterRegisterValidation extends Validation implements Validator{
      * @param array $data
      */
     public static function validate(array $data) {
-        
+
         $errors = array();
-       
+
         if (empty($data['firstname'])) {
             $errors[] = new Error('firstname', 'Empty firstname field.');
         } elseif (!parent::validateUsername($data['firstname'])) {
@@ -51,7 +51,7 @@ class VoterRegisterValidation extends Validation implements Validator{
             $errors[] = new Error('password1', 'Password mismatch.');
             $errors[] = new Error('password2', 'Password mismatch.');
         }
-         if (!is_numeric($data['election_id'])) {
+        if (!is_numeric($data['election_id'])) {
             $errors[] = new Error('election', 'Invalid election selected.');
         }
         if (!is_numeric($data['University_id'])) {
@@ -65,7 +65,24 @@ class VoterRegisterValidation extends Validation implements Validator{
         }
         return $errors;
     }
-   
+
+    public static function validateFileUpload(array $data) {
+        $errors = array();
+        if (!is_numeric($data['election_id'])) {
+            $errors[] = new Error('election', 'Invalid election selected.');
+        }
+        if (!is_numeric($data['University_id'])) {
+            $errors[] = new Error('university', 'Invalid university selected.');
+        }
+        if (!is_numeric($data['Faculty_id'])) {
+            $errors[] = new Error('faculty', 'Invalid faculty selected.');
+        }
+        if (!is_numeric($data['department_id'])) {
+            $errors[] = new Error('department', 'Invalid department selected.');
+        }
+        return $errors;
+    }
+
 }
 
 ?>
