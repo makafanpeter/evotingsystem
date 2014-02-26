@@ -35,7 +35,7 @@ if (array_key_exists('cancel', $_POST)) {
         $voterdao = new VoterDao();
         $rowsImported = 0;
         $row = 1;
-        if (($handle = fopen($file->getTempName(), "r")) !== FALSE) {
+        if (($handle = fopen($_FILES['csvdoc']['tmp_name'], "r")) !== FALSE) {
             while (($csvData = fgetcsv($handle, 1000, ",")) !== FALSE) {
                 $num = count($csvData);
                 $temp = array();
@@ -66,7 +66,8 @@ if (array_key_exists('cancel', $_POST)) {
             }
             fclose($handle);
         }
-        $rowsImported;
+        Flash::addFlash( $rowsImported.' rows imported.');
+        Utils::redirect('admin-list-voter');
         /**
 
           $voter = $voterdao->findByMatricNumber($data['matricNumber']);
@@ -83,7 +84,7 @@ if (array_key_exists('cancel', $_POST)) {
           $pic = new JpegThumbnail(130, 155);
           $pic->generate($_FILES['avatar']['tmp_name'], '../avatar/' . str_replace('/', '', $voter->getMatricNumber()) . '.jpg');
           Flash::addFlash("Account Created");
-          Utils::redirect('admin-list-voter');
+          
           }
          */
     }
