@@ -420,7 +420,11 @@ ul#flashes li {
 
 /*Upload info*/
 #uploadInfo {
-    font-family: Arial;
+    font-family: sans-serif,serif;
     font-size: smaller;
     text-align: left;
+}
+
+#uploadInfo ul{
+    list-style-type: square;
 }

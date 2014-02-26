@@ -16,7 +16,7 @@ final class Index {
         'admin-list-candidate', 'admin-list-department', 'admin-list-election',
         'admin-list-faculty', 'delete', 'admin-list-election', 'admin-list-faculty', 'admin-list-position',
         'admin-list-university', 'admin-list-voter', 'admin-result-pie',
-        'candidate-register', 'voter-register','voters-upload', 'admin-list-administrator', 'admin-view-candidate');
+        'candidate-register', 'voter-register','csv-import', 'admin-list-administrator', 'admin-view-candidate');
 
     /**
      * System config.
