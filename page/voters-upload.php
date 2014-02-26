@@ -66,7 +66,12 @@ if (array_key_exists('cancel', $_POST)) {
             }
             fclose($handle);
         }
-        Flash::addFlash( $rowsImported.' rows imported.');
+        if ($rowsImported > 1) {
+            Flash::addFlash($rowsImported . ' rows imported.');
+        } else {
+            Flash::addFlash($rowsImported . ' row imported.');
+        }
+
         Utils::redirect('admin-list-voter');
         /**
 
@@ -84,7 +89,7 @@ if (array_key_exists('cancel', $_POST)) {
           $pic = new JpegThumbnail(130, 155);
           $pic->generate($_FILES['avatar']['tmp_name'], '../avatar/' . str_replace('/', '', $voter->getMatricNumber()) . '.jpg');
           Flash::addFlash("Account Created");
-          
+
           }
          */
     }
