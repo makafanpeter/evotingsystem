@@ -35,7 +35,7 @@
 <div id="rightColumn">
     <div id="content">
         <div class="indent">
-            <h3>Voter Registration</h3>
+            <h3>Csv Import</h3>
             <?php if (!empty($errors)): ?>
                 <div class="ui-widget">
                     <div class="ui-state-error ui-corner-all" style="padding: auto;"> 
@@ -108,12 +108,21 @@
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td><input name="register" value="REGISTER" type="submit" class="greenButton"/>
+                                <td><input name="import" value="IMPORT" type="submit" class="greenButton"/>
                                     <input name="cancel" value="CANCEL" type="submit" class="greenButton"/></td>
                             </tr>
                         </tbody>
                     </table>
                 </form>
+                <div id="uploadInfo">
+                <p>CSV file should be structured like this</p>
+                <ul>
+                    <li>Matric Number</li>
+                    <li>First name</li>
+                    <li>Last Name</li>
+                    <li>Middle name (not mandatory)</li>
+                </ul>
+                </div>
             </div>
 
         </div>

@@ -417,3 +417,10 @@ ul#flashes li {
     margin: 0;
     border: none;
 }
+
+/*Upload info*/
+#uploadInfo {
+    font-family: Arial;
+    font-size: smaller;
+    text-align: left;
+}

@@ -12,7 +12,7 @@ $elections = $electiondao->find();
 $errors = array();
 if (array_key_exists('cancel', $_POST)) {
     Utils::redirect('admin-list-voter');
-} elseif (array_key_exists('register', $_POST)) {
+} elseif (array_key_exists('import', $_POST)) {
     $data = array(
         'election_id' => $_POST['data']['election']
         , 'University_id' => $_POST['data']['university']
